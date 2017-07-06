@@ -1,0 +1,17 @@
+<div>
+  <div class="edit-buttons">
+    <input placeholder="Insert Title" ng-model="blog.title" type="text" name="" value="">
+    <textarea placeholder="Insert Text" ng-model="blog.post" type="text" name="" value=""></textarea>
+    <button ng-click="addPost(blog)" type="button" name="button">Submit</button>
+  </div>
+
+  <div ng-repeat="post in posts track by $index" class="blog-post">
+
+    <ul class="blog-list">
+      <li class=""><button type="button" name="button">Update</button></li>
+      <li class=""><button type="button" name="button">Delete</button></li>
+    </ul>
+    <h1>{{post.title}}</h1>
+    <p>{{post.blog_post}}</p>
+  </div>
+</div>
