@@ -11,8 +11,10 @@ module.exports = app => {
 
   app.get('/postBlog', function (req, res){
     req.app.get('db')
-    .run('select blog_post, title from posts')
+    .run('select blog_post, title, id from posts order by id')
     .then(blog_post => res.status(200).json(blog_post));
   })
+
+
 
 }
