@@ -1,0 +1,65 @@
+<form class="searchBar" action="index.html" method="post">
+  <div class="form-group">
+    <input type="text" placeholder="Search" ng-model="search.restaurant">
+
+    <select class="filters" ng-model="filters">
+      <option value="restaurant">Restaurants</option>
+      <option value="type">Type</option>
+      <option value="price_range">Price</option>
+    </select>
+
+    <select class="filters" ng-model="otherFilters">
+      <option value="-">Descending</option>
+      <option value="+">Ascending</option>
+    </select>
+  </div>
+</form>
+
+<div>
+  <p class="addFood"><button ng-click="" type="button" name="button">Add</button></p>
+
+  <div>
+    <div class="">
+      <input placeholder="Restaurant Name" ng-model="food.name" type="text" class="">
+      <select ng-model="food.type" class="">
+        <option value=""disabled-selected>Select your option</option>
+        <option value="Mexican">Mexican</option>
+        <option value="Italian">Italian</option>
+        <option value="Indian">Indian</option>
+        <option value="Cajun/Soul">Cajun/Soul</option>
+        <option value="Asian">Asian</option>
+        <option value="Greek">Greek</option>
+        <option value="American">American</option>
+        <option value="French">French</option>
+      </select>
+
+      <select class="" ng-model="food.price">
+        <option type="checkbox" value="$">$</option>
+        <option type="checkbox" value="$$">$$</option>
+        <option type="checkbox" value="$$$">$$$</option>
+        <option type="checkbox" value="$$$$">$$$$</option>
+        <option type="checkbox" value="$$$$$">$$$$$</option>
+      </select>
+      <textarea placeholder="Insert Text" ng-model="food.description" type="text" class=""></textarea>
+
+      <button ng-click="addFood(food)" type="button" name="button">Submit</button>
+    </div>
+  </div>
+
+  <div ng-repeat="food in foods | filter:search | orderBy: filters + otherFilters" class="foodResults">
+    <h1>{{food.restaurant}}</h1>
+    <h3>Category: {{food.type}}</h3>
+    <h3>{{food.price_range}}</h3>
+    <h3>{{food.description}}</h3>
+
+    <button type="button" name="button">Update</button>
+    <div id="">
+      <textarea placeholder="Insert Text" ng-model="foodBox.update" type="text" class=""></textarea>
+      <br>
+      <button ng-click="updateFood({id: food.id, update: foodBox.update}); foodBox.update = ''" type="button" name="button">Submit</button>
+    </div>
+
+    <button ng-click="deleteFood(food.id)" type="button" name="button">Delete</button>
+
+  </div>
+</div>

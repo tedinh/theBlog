@@ -6,10 +6,9 @@ const   express = require('express')
 				, config = require("./config")
         , massive = require("massive")
         , masterRoutes = require("./server/masterRoutes.js")
-				// , session = require("express-session")
         , aws = require("aws-sdk")
 
-// app.use(session(config.session) );
+
 aws.config.update({
    accessKeyId: config.accessKeyId,
    secretAccessKey: config.secretAccessKey,
@@ -27,7 +26,7 @@ massive('postgres://tedinh@localhost:5432/blog').then(massiveInstance => {
   app.set('db', massiveInstance);
 });
 
-
+// amazon img storage
 app.get('/api/s3', function(req, res, next) {
    const s3 = new aws.S3()
    const s3Config = {
@@ -49,7 +48,7 @@ app.get('/api/s3', function(req, res, next) {
    })
 
 })
-
+// amazon img storage
 
 app.listen(port, function() {
   console.log('Server listening on port', port)

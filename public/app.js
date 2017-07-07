@@ -12,7 +12,8 @@ angular.module('theBlog', ['ui.router'])
   })
   .state('food',{
     url: '/food',
-    templateUrl: './views/food.html'
+    templateUrl: './views/food.html',
+    controller: 'foodCtrl'
   })
   .state('shop',{
     url: '/shop',

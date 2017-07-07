@@ -45,7 +45,6 @@ angular.module('theBlog').controller('mainCtrl', function($scope, mainServ) {
   }
 
   $scope.deletePost = function(id){
-
     mainServ.deletePosts(id).then(function(response){
       getPosts()
     })
