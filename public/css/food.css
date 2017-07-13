@@ -3,3 +3,11 @@
   border-color: black;
   text-align: center;
 }
+
+#hiddenBoxes2 {
+  display: none;
+}
+
+#updatingTextBox {
+  display: none;
+}

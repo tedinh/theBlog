@@ -7,6 +7,10 @@ const   express = require('express')
         , massive = require("massive")
         , masterRoutes = require("./server/masterRoutes.js")
         , aws = require("aws-sdk")
+        , passport = require("passport")
+        , LocalStrategy = require('passport-local')
+        , router = express.Router()
+
 
 
 aws.config.update({
@@ -16,8 +20,11 @@ aws.config.update({
    signatureVersion: config.signatureVersion
 })
 
+
 app.use(cors())
 app.use(bodyParser.json())
+
+
 
 masterRoutes(app);
 app.use("/", express.static(__dirname + '/public'));
@@ -25,6 +32,12 @@ app.use("/", express.static(__dirname + '/public'));
 massive('postgres://tedinh@localhost:5432/blog').then(massiveInstance => {
   app.set('db', massiveInstance);
 });
+
+router.get('/add-to-cart/:id', function(req, res, next){
+  var productId = req.params.id;
+
+});
+
 
 // amazon img storage
 app.get('/api/s3', function(req, res, next) {

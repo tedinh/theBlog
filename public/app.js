@@ -17,11 +17,22 @@ angular.module('theBlog', ['ui.router'])
   })
   .state('shop',{
     url: '/shop',
-    templateUrl: './views/shop.html'
+    templateUrl: './views/shop.html',
+    controller: 'shopCtrl'
   })
   .state('contact',{
     url: '/contact',
     templateUrl: './views/contact.html'
+  })
+  .state('cart', {
+    url: '/shoppingCart',
+    templateUrl: './views/shoppingCart.html',
+    controller: 'cartCtrl'
+  })
+  .state('signUp',{
+    url: '/login',
+    templateUrl: './views/signUp.html',
+    controller: 'signUpCtrl'
   })
 
 })

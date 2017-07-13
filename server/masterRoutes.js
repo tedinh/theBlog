@@ -7,6 +7,11 @@ const addFood = require("./addFoods/addFoodSrv.js")
 const updateFood = require("./updatefoods/updateFoodSrv.js")
 const deleteFood = require("./deleteFoods/deleteFoodSrv.js")
 
+const shopping = require("./shop/shoppingSrv.js")
+const cart = require("./shop/cart.js")
+
+const passport = require("./passport.js")
+
 module.exports = app => {
   addPost(app);
   updatePost(app);
@@ -15,4 +20,9 @@ module.exports = app => {
   addFood(app);
   updateFood(app);
   deleteFood(app);
+
+  shopping(app);
+  cart(app);
+
+
 }

@@ -1,9 +1,34 @@
 angular.module('theBlog')
 .controller('foodCtrl', function($scope, foodSrv){
 
+  $scope.appear = function(){
+    var x = document.getElementById('hiddenBoxes2');
+    if (x.style.display === 'block'){
+      x.style.display = 'none';
+    } else {
+      x.style.display = 'block';
+    }
+  }
+
+  $scope.updatingFood = function(){
+    var x = document.getElementById('updatingTextBox');
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    } else {
+        x.style.display = 'block';
+    }
+  }
+
+
 $scope.addFood = function(foodPost){
   console.log("hello from Controller")
-  foodSrv.addFoods(foodPost)
+  foodSrv.addFoods(foodPost).then(function(response){
+    getFoods()
+    $scope.food.name = ''
+    $scope.food.type = ''
+    $scope.food.price = ''
+    $scope.food.description = ''
+  })
 }
 
 function getFoods() {
