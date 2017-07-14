@@ -9,16 +9,12 @@ angular.module('theBlog').controller('mainCtrl', function($scope, mainServ) {
     }
   }
 
-  $scope.update = function(){
-    var y = document.getElementById('updateTextBox');
-    if (y.style.display === 'block'){
-      y.style.display = 'none';
-    } else {
-      y.style.display = 'block';
-    }
+  $scope.IsVisible = false;
+
+  $scope.ShowHide = function (post) {
+    console.log(post)
+    $scope.IsVisible = $scope.IsVisible ? false : true;
   }
-
-
 
   $scope.addPost = function(blogTextbox){
     console.log("hello from controller:" ,blogTextbox)
@@ -31,7 +27,7 @@ angular.module('theBlog').controller('mainCtrl', function($scope, mainServ) {
 
   function getPosts() {
     mainServ.getPosts().then(function(res){
-      console.log(res.data);
+      console.log('posts:', res.data);
       $scope.posts = res.data.reverse();
     })
   }

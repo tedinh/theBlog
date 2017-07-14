@@ -26,6 +26,7 @@ this.getSignedUrl = function(file) {
    }
 
 this.uploadFile = function(file, signed_request) {
+  console.log('uploadfile')
       return $http.put(signed_request, file, {headers: {'x-amz-acl': 'public-read'}})
    }
 

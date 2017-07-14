@@ -14,54 +14,61 @@ a:hover {
   color: blue;
 }
 
-.blog-post{
-  border-style: solid;
-  border-color: black;
-  text-align: center;
-}
 
-.edit-buttons{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-  margin-left: 30vw;
-  margin-right: 30vw;
-}
 
 .addHome {
   list-style-type: none;
 }
-/*home view*/
+
+
 #hiddenBoxes {
   display: none;
 }
 
-.addTextBox {
-  height: 100px;
-  text-align: center;
-}
-
-.blog-list {
-  list-style-type: none;
-  display: inline;
-}
 
 .updateBox {
   text-align: center;
   width: 300px;
   height: 150px;
   resize: none;
+  margin-top: 20px;
 }
 
-.title {
-  text-align: center;
+.edit-buttons {
+  width: 400px;
+  height: 170px;
 }
 
-#updateTextBox {
-  display: none;
+.addTextBox {
+  height: 500px;
 }
+
 
 .previewImg {
   height: 100px;
+}
+
+.blog-container {
+  margin: 10px;
+  border-style: solid;
+  border-color: #c3c6c9;
+}
+
+.home-thumb {
+  margin: 20px;
+}
+
+.sm-buttons {
+  display: inline-block;
+}
+
+.insideHiddenBoxes {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.addSubmit {
+  margin-top: 5px;
 }

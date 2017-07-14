@@ -1,34 +1,40 @@
-<div>
-  <p class="addHome"><button ng-click="add()" type="button" name="button">Add</button></p>
+<div class="col-md-12">
+  <p class="addHome"><button class="btn btn-primary btn-xs" ng-click="add()" type="button" name="button">Add</button></p>
   <input type="file" id="file-input">
-  <div id="hiddenBoxes">
+  <div id="hiddenBoxes" class="col-md-8 insideHiddenBoxes">
     <div class="edit-buttons">
-      <input placeholder="Insert Title" ng-model="blog.title" type="text" class="title" value="">
-      <textarea placeholder="Insert Text" ng-model="blog.post" type="text" class="addTextBox"></textarea>
-      <button ng-click="addPost(blog)" type="button" name="button">Submit</button>
+      <input placeholder="Insert Title" ng-model="blog.title" type="text" class="form-control title" value="">
+      <textarea placeholder="What's on your mind?" ng-model="blog.post" type="text" class="form-control addTextBox" rows="3"></textarea>
+      <button class="btn btn-info btn-sm addSubmit" ng-click="addPost(blog)" type="button" name="button">Submit</button>
     </div>
   </div>
 
-  <div ng-repeat="post in posts track by post.id" class="blog-post">
-    <h1>{{post.title}}</h1>
-    <img ng-src="{{imageUrl}}" alt="" class="previewImg">
-    <p>{{post.blog_post}}</p>
-    <ul class="blog-list">
-      <div>
-        <button type="button" name="button" ng-click="update()">Update</button>
-      <div id="updateTextBox">
-        <textarea placeholder="Insert Text" ng-model="textBox.update" type="text" class="updateBox"></textarea>
+
+  <div class="col-md-12" ng-repeat="post in posts track by post.id">
+
+    <div class="thumbnail home-thumb">
+      <img ng-src="{{imageUrl}}">
+      <div class="caption">
+        <h1>{{post.title}}</h1>
         <br>
-        <button ng-click="updatePost({id: post.id, update: textBox.update}); textBox.update = ''" type="button" name="button">Submit</button>
+        <br>
+        <p>{{post.blog_post}}</p>
+        <br>
+        <div class="blog-list">
+          <span><a class="btn btn-primary btn-xs" role="button" ng-click="post.visible = !post.visible">Update</a></span>
+          <br>
+
+          <textarea id='textArea' ng-show="post.visible" placeholder="Insert Text" ng-model="textBox.update" type="text" class="form-control updateBox"></textarea>
+
+          <br>
+          <span class="sm-buttons" <p><a ng-show="post.visible" ng-click="updatePost({id: post.id, update: textBox.update}); textBox.update = ''" class="btn btn-info btn-xs" role="button">Submit</a></p>
+              <p><a ng-show="post.visible" ng-click="deletePost(post.id)" class="btn btn-danger btn-xs" role="button">Delete</a></p>
+              </span>
+
+        </div>
       </div>
-      </div>
-
-      <button ng-click="deletePost(post.id)" type="button" name="button">Delete</button>
-
-
-
-
-    </ul>
-
+    </div>
   </div>
+
+
 </div>
