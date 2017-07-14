@@ -65,5 +65,5 @@ app.get('/api/s3', function(req, res, next) {
 // amazon img storage
 
 app.listen(process.env.PORT, function() {
-  console.log('Server listening on port', port)
+  console.log('Server listening on port 3000')
 })
