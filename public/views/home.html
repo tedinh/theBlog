@@ -1,10 +1,13 @@
+<h1 class="firstTitle">THE BLOG LIFE</h1>
 <div class="col-md-12">
   <p class="addHome"><button class="btn btn-primary btn-xs" ng-click="add()" type="button" name="button">Add</button></p>
-  <input type="file" id="file-input">
-  <div id="hiddenBoxes" class="col-md-8 insideHiddenBoxes">
+
+  <div id="hiddenBoxes" class="col-sm-6 col-sm-4 insideHiddenBoxes">
     <div class="edit-buttons">
       <input placeholder="Insert Title" ng-model="blog.title" type="text" class="form-control title" value="">
       <textarea placeholder="What's on your mind?" ng-model="blog.post" type="text" class="form-control addTextBox" rows="3"></textarea>
+      <input type="file" id="file-input">
+      <img class='preview-image' ng-src="{{imageUrl}}">
       <button class="btn btn-info btn-sm addSubmit" ng-click="addPost(blog)" type="button" name="button">Submit</button>
     </div>
   </div>
@@ -13,9 +16,9 @@
   <div class="col-md-12" ng-repeat="post in posts track by post.id">
 
     <div class="thumbnail home-thumb">
-      <img ng-src="{{imageUrl}}">
+      <img ng-src="{{post.imageurl}}" class="img-responsive">
       <div class="caption">
-        <h1>{{post.title}}</h1>
+        <h1 class="title">{{post.title}}</h1>
         <br>
         <br>
         <p>{{post.blog_post}}</p>

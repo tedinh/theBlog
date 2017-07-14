@@ -1,3 +1,3 @@
-INSERT INTO posts (blog_post, title)
-VALUES ($1 , $2);
-SELECT blog_post, title FROM posts;
+INSERT INTO posts (blog_post, title, imageurl)
+VALUES ($1 , $2, $3);
+SELECT blog_post, title, imageurl FROM posts;

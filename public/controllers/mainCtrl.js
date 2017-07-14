@@ -16,14 +16,7 @@ angular.module('theBlog').controller('mainCtrl', function($scope, mainServ) {
     $scope.IsVisible = $scope.IsVisible ? false : true;
   }
 
-  $scope.addPost = function(blogTextbox){
-    console.log("hello from controller:" ,blogTextbox)
-    mainServ.addPosts(blogTextbox).then(function(response){
-      getPosts()
-      $scope.blog.post = ''
-      $scope.blog.title = ''
-    })
-  }
+
 
   function getPosts() {
     mainServ.getPosts().then(function(res){
@@ -60,6 +53,16 @@ angular.module('theBlog').controller('mainCtrl', function($scope, mainServ) {
       .then(function(response) {
          console.log(response)
          $scope.imageUrl = url
+         $scope.addPost = function(blogTextbox){
+           console.log("hello from controller:" ,blogTextbox)
+           blogTextbox.url = url;
+           mainServ.addPosts(blogTextbox).then(function(response){
+             getPosts()
+             $scope.blog.post = ''
+             $scope.blog.title = ''
+           })
+         }
+
       })
    })
 

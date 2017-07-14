@@ -12,14 +12,20 @@ a {
 
 a:hover {
   color: blue;
+  text-decoration: underline;
 }
-
 
 
 .addHome {
   list-style-type: none;
 }
 
+.firstTitle {
+  font-family: "Spectral";
+  font-size: 50px;
+  text-align: center;
+  text-decoration: underline;
+}
 
 #hiddenBoxes {
   display: none;
@@ -39,13 +45,16 @@ a:hover {
   height: 170px;
 }
 
-.addTextBox {
-  height: 500px;
+.preview-image{
+  height: 100px;
 }
-
 
 .previewImg {
   height: 100px;
+}
+
+.title {
+  text-decoration: underline;
 }
 
 .blog-container {
@@ -63,10 +72,10 @@ a:hover {
 }
 
 .insideHiddenBoxes {
-  margin: 20px;
+  margin-bottom: 60px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .addSubmit {
