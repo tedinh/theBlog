@@ -11,7 +11,7 @@ const   express = require('express')
         , passport = require("passport")
         , LocalStrategy = require('passport-local')
         , router = express.Router()
-
+        , axios = require('axios')
 
 
 aws.config.update({

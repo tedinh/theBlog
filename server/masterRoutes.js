@@ -12,6 +12,8 @@ const cart = require("./shop/cart.js")
 
 const passport = require("./passport.js")
 
+const insta = require('./instagram.js')
+
 module.exports = app => {
   addPost(app);
   updatePost(app);
@@ -23,6 +25,8 @@ module.exports = app => {
 
   shopping(app);
   cart(app);
+
+  insta(app);
 
 
 }
