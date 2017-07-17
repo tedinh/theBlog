@@ -1,3 +1,6 @@
+body{
+  font-family: 'Spectral';
+}
 .nav-list {
   display: flex;
   flex-direction: row;
@@ -33,11 +36,13 @@ a:hover {
 
 
 .updateBox {
+  justify-content: center;
   text-align: center;
   width: 300px;
   height: 150px;
   resize: none;
   margin-top: 20px;
+  overflow: auto;
 }
 
 .edit-buttons {
@@ -71,6 +76,16 @@ a:hover {
   display: inline-block;
 }
 
+.thumbBox {
+  text-align: center;
+  justify-content: center;
+
+}
+.blogPic {
+  text-align: center;
+  align-content: center;
+}
+
 .insideHiddenBoxes {
   margin-bottom: 60px;
   display: flex;
@@ -80,4 +95,9 @@ a:hover {
 
 .addSubmit {
   margin-top: 5px;
+}
+
+.img-responsive {
+  height: 400px;
+  margin: 0 auto;
 }

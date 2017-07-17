@@ -10,13 +10,11 @@ angular.module('theBlog')
     }
   }
 
-  $scope.updatingFood = function(){
-    var x = document.getElementById('updatingTextBox');
-    if (x.style.display === 'block') {
-        x.style.display = 'none';
-    } else {
-        x.style.display = 'block';
-    }
+  $scope.IsVisible = false;
+
+  $scope.ShowHide = function (post) {
+    console.log(post)
+    $scope.IsVisible = $scope.IsVisible ? false : true;
   }
 
 

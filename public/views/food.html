@@ -1,69 +1,92 @@
-<div>
-  <p class="addFood"><button ng-click="appear()" type="button" name="button">Add</button></p>
+<div class="col-md-12">
+  <p class="addFood"><button class="btn btn-primary btn-xs" ng-click="appear()" type="button" name="button">Add</button></p>
 
   <div id="hiddenBoxes2">
-    <div class="">
-      <input placeholder="Restaurant Name" ng-model="food.name" type="text" class="">
+    <div class="addFoodBox">
+      <input placeholder="Restaurant Name" ng-model="food.name" type="text" class="form-control title">
+
+      <textarea placeholder="Insert Text" ng-model="food.description" type="text" class="form-control"></textarea>
+
+    <div class='optionRangeBox'>
       <select ng-model="food.type" class="">
-        <option value="" disabled>Select your option</option>
-        <option value="Mexican">Mexican</option>
+        <option value="" disabled>Select Your Option</option>
+        <option value="American">American</option>
+        <option value="Asian">Asian</option>
+        <option value="Cajun/Soul">Cajun/Soul</option>
+        <option value="French">French</option>
+        <option value="Greek">Greek</option>
         <option value="Italian">Italian</option>
         <option value="Indian">Indian</option>
-        <option value="Cajun/Soul">Cajun/Soul</option>
-        <option value="Asian">Asian</option>
-        <option value="Greek">Greek</option>
-        <option value="American">American</option>
-        <option value="French">French</option>
+        <option value="Mexican">Mexican</option>
       </select>
 
       <select class="" ng-model="food.price">
-        <option value="" disabled>Price Range</option>
+        <option value="" disabled>Select Price Range</option>
         <option type="checkbox" value="$">$</option>
         <option type="checkbox" value="$$">$$</option>
         <option type="checkbox" value="$$$">$$$</option>
         <option type="checkbox" value="$$$$">$$$$</option>
         <option type="checkbox" value="$$$$$">$$$$$</option>
       </select>
-      <textarea placeholder="Insert Text" ng-model="food.description" type="text" class=""></textarea>
-
-      <button ng-click="addFood(food)" type="button" name="button">Submit</button>
+      <button class="btn btn-info btn-xs" ng-click="addFood(food)" type="button" name="button">Submit</button>
     </div>
+  </div>
   </div>
 
   <form class="searchBar" action="index.html" method="post">
-    <div class="form-group">
-      <input type="text" placeholder="Search" ng-model="search.restaurant">
+    <div class="form-inline">
 
-      <select class="filters" ng-model="filters">
+      <!-- <select class="form-group input-medium filters" ng-model="filters">
         <option value="restaurant">Restaurants</option>
         <option value="type">Type</option>
         <option value="price_range">Price</option>
+      </select> -->
+      <span style="text-decoration: underline">Filters:</span>
+      <input class="form-group" type="text" placeholder="Search Restaurants" ng-model="search.restaurant">
+      <select class="form-group" type="text" placeholder="Filter by Category" ng-model="search.type">
+        <option value="" disabled>Filter by Category</option>
+        <option value="American">American</option>
+        <option value="Asian">Asian</option>
+        <option value="Cajun/Soul">Cajun/Soul</option>
+        <option value="French">French</option>
+        <option value="Greek">Greek</option>
+        <option value="Italian">Italian</option>
+        <option value="Indian">Indian</option>
+        <option value="Mexican">Mexican</option>
+      </select>
+      <select class="form-group" type="text" placeholder="" ng-model="search.price_range">
+        <option value="" disabled>Filter by Price</option>
+        <option type="checkbox" value="$">$</option>
+        <option type="checkbox" value="$$">$$</option>
+        <option type="checkbox" value="$$$">$$$</option>
+        <option type="checkbox" value="$$$$">$$$$</option>
+        <option type="checkbox" value="$$$$$">$$$$$</option>
       </select>
 
-      <select class="filters" ng-model="otherFilters">
-        <option value="-">Descending</option>
-        <option value="+">Ascending</option>
-      </select>
+
+
     </div>
   </form>
 
-  <div ng-repeat="food in foods | filter:search | orderBy: filters + otherFilters" class="foodResults">
 
-    <div class=" panel-default">
-      <div class="panel-heading"><h1>{{food.restaurant}}</h1></div>
+  <div class="col-md-12" ng-repeat="food in foods | filter:search | orderBy: filters" class="foodResults">
+
+    <div class="thumbnail foodThumb">
+      <div class="panel-heading foodTitle"><h1>{{food.restaurant}}</h1></div>
       <div class="panel-body">
-        <h3>Category: {{food.type}}</h3>
         <h3>{{food.price_range}}</h3>
-        <h3>{{food.description}}</h3>
+        <h3>Category: {{food.type}}</h3>
+        <h2>{{food.description}}</h2>
 
-        <button type="button" name="button" ng-click="updatingFood()">Update</button>
-        <div id="updatingTextBox">
-          <textarea placeholder="Insert Text" ng-model="foodBox.update" type="text" class=""></textarea>
+        <button class="btn btn-primary btn-xs" type="button" name="button" ng-click="food.visible = !food.visible">Update</button>
+        <div id="">
+          <textarea placeholder="Insert Text" ng-show="food.visible" ng-model="foodBox.update" type="text" class="foodTxt"></textarea>
           <br>
-          <button ng-click="updateFood({id: food.id, update: foodBox.update}); foodBox.update = ''" type="button" name="button">Submit</button>
-        </div>
+          <button class="btn btn-info btn-xs" ng-show="food.visible" ng-click="updateFood({id: food.id, update: foodBox.update}); foodBox.update = ''" type="button" name="button">Submit</button>
 
-        <button ng-click="deleteFood(food.id)" type="button" name="button">Delete</button>
+
+        <button class="btn btn-danger btn-xs" ng-click="deleteFood(food.id)" type="button" name="button">Delete</button>
+      </div>
       </div>
     </div>
   </div>

@@ -1,8 +1,8 @@
 module.exports = {
   sessionSecret: 'keyboard cat',
   bucketName: 'terrysblog',
-    accessKeyId: 'AKIAIMCFX6JPFN4CJ7LQ',
-    secretAccessKey: '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',
+    accessKeyId: 'AKIAJL23G6QLDNUBI2TA',
+    secretAccessKey: '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',
     region: 'us-east-2',
     signatureVersion: 'v4'
 };

@@ -8,6 +8,63 @@
   display: none;
 }
 
-#updatingTextBox {
+/*#updatingTextBox {
   display: none;
+}*/
+
+.addFoodBox {
+  margin-bottom: 20px;
+}
+
+.optionRangeBox {
+  margin-top: 5px;
+}
+
+.searchBar {
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.foodcap {
+  text-decoration: underline;
+  text-align: center;
+}
+
+.foodThumb {
+  text-align: center;
+}
+
+.foodThumbnail {
+  height: 200px;
+  width: 200px;
+}
+
+.foodDesc {
+  height: 200px;
+  width: 350;
+  overflow: auto;
+  border-style: solid;
+  border-color: #e8e8e8;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.foodTitle {
+  font-family: "Spectral";
+  font-size: 50px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.foodPrice {
+  font-size: 20px;
+}
+
+.foodTxt {
+  width: 300px;
+  height: 150px;
+  resize: none;
+  margin-top: 20px;
+  overflow: auto;
+  text-align: center;
 }

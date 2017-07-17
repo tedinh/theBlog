@@ -35,6 +35,27 @@ textarea {
   resize: none;
 }
 
+.panel-title {
+  text-decoration: underline;
+}
+
 .aboutMe-list {
   list-style-image: url('http://icons.iconarchive.com/icons/icons-land/3d-food/24/IceCream-Cone-icon.png')
+}
+
+.contact-list {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.facebook {
+  color: #3B5998;
+}
+
+.linkedin {
+  color: #0077B5;
+}
+
+.github{
+  color: #4A2779;
 }

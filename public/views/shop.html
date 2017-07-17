@@ -1,14 +1,17 @@
 <div class="container">
   <div class="row">
     <div ng-repeat="prod in prods" class="col-sm-4 col-md-4">
-      <div class="thumbnail">
-        <img ng-src="{{prod.image}}" alt="...">
+      <div class="thumbnail foodList">
+        <img ng-src="{{prod.image}}" alt="..." class="foodThumbnail">
         <div class="caption">
+          <div class="foodcap">
           <h3>{{prod.title}}</h3>
+        </div>
+          <div class="foodDesc">
           <p>{{prod.description}}</p>
-
+        </div>
           <div class="clearfix">
-            <div class="price pull-left">${{prod.price}}</div>
+            <div class="price pull-left foodPrice">${{prod.price}}</div>
              <a ng-click= "addToCart(prod)" class="btn btn-default pull-right" role="button">Add To Cart</a></p>
           </div>
         </div>
